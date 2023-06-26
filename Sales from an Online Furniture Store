@@ -119,21 +119,29 @@ INSERT INTO sales(transaction_date,product,price,payment_type,name,city,state,co
 INSERT INTO sales(transaction_date,product,price,payment_type,name,city,state,country,account_created,last_login,latitude,longitude) VALUES ('1/14/09 11:19','Chair',1200,'Visa','Jennifer','Jumeira','Dubayy','United Arab Emirates','1/14/09 10:44','1/14/09 21:26',25.2097222,55.2477778);
 INSERT INTO sales(transaction_date,product,price,payment_type,name,city,state,country,account_created,last_login,latitude,longitude) VALUES ('1/13/09 19:39','Chair',1200,'Visa','Jolene','Englewood','CO','United states','1/6/09 22:00','1/14/09 22:02',39.64778,-104.98722);
 
+--What are the average, max, and min sales prices in the data?
+
 SELECT AVG(price) AS Average FROM sales;
 SELECT MAX(price) AS Highest FROM sales;
 SELECT MIN(price) AS Lowest FROM sales;
+
+--What is the highest grossing product and its total gross?
 
 SELECT product as Highest_Grossing_Product, SUM(price) AS Total_Gross FROM SALES
 GROUP BY product
 HAVING Total_Gross > 50000;
 
-SELECT Name, City, Country
+-- What are the cities and countries that we get our sales from?
+
+SELECT City, Country
 FROM SALES
 ORDER BY
 (CASE
     WHEN City IS NULL THEN Country
     ELSE City
 END);
+
+--What sales have we gotten from Vancouver, Canada?
 
 SELECT * FROM SALES
 WHERE Country ='Canada' AND City='Vancouver';
