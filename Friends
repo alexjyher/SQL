@@ -1,0 +1,56 @@
+/* Friends */
+
+CREATE TABLE characters (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER);
+
+INSERT INTO characters (fullname, age) VALUES ("Monica Geller", "25");
+INSERT INTO characters (fullname, age) VALUES ("Chandler Bing", "26");
+INSERT INTO characters (fullname, age) VALUES ("Rachel Green", "24");
+INSERT INTO characters (fullname, age) VALUES ("Ross Geller", "26");
+INSERT INTO characters (fullname, age) VALUES ("Joey Tribbiani", "25");
+INSERT INTO characters (fullname, age) VALUES ("Phoebe Buffay", "26");
+
+CREATE table jobs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    title TEXT);
+    
+INSERT INTO jobs (person_id, title) VALUES (1, "Chef");
+INSERT INTO jobs (person_id, title) VALUES (2, "Data Scientist");
+INSERT INTO jobs (person_id, title) VALUES (3, "Fashion Executive");
+INSERT INTO jobs (person_id, title) VALUES (4, "Professor");
+INSERT INTO jobs (person_id, title) VALUES (5, "Actor");
+INSERT INTO jobs (person_id, title) VALUES (6, "Massage Therapist");
+
+CREATE TABLE actors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age_today INTEGER);
+
+INSERT INTO actors (fullname, age_today) VALUES ("Courtney Cox", "59");
+INSERT INTO actors (fullname, age_today) VALUES ("Matthew Perry", "53");
+INSERT INTO actors (fullname, age_today) VALUES ("Jennifer Aniston", "54");
+INSERT INTO actors (fullname, age_today) VALUES ("David Schwimmer", "56");
+INSERT INTO actors (fullname, age_today) VALUES ("Matt Leblanc", "55");
+INSERT INTO actors (fullname, age_today) VALUES ("Lisa Kudrow", "59");
+
+--What is each character's job?
+
+SELECT c.fullname, j.title
+FROM characters c
+JOIN jobs j
+ON c.id = j.person_id;
+
+--Which characters were played by which actor?
+
+SELECT characters.fullname, actors.fullname
+FROM characters
+JOIN actors
+ON characters.id = actors.id;
+
+--What are the ages of the actors today?
+
+SELECT fullname, age_today as age
+FROM actors;
