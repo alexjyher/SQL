@@ -1,4 +1,4 @@
--- This project utilized data from the following Netflix dataset:
+--This project utilized data from the following Netflix dataset:
 CREATE TABLE netflix_titles_info
     ("show_id" varchar(5), "type" varchar(7), "title" varchar(58), "country" varchar(74), "date_added" timestamp, "release_year" int, "rating" varchar(5), "duration" varchar(9), "listed_in" varchar(74))
 ;
@@ -57,7 +57,7 @@ VALUES
     ('s20', NULL, 'Blanca SuÃ¡rez| IvÃ¡n Marcos| Ã“scar Casas| AdriÃ¡n Lastra| Francesc Garrido| Stefan Weinert| Julia MÃ¶ller| Alicia Chojnowski')
     ;
 
--- Intial Table
+--Initial Table
 SELECT people.show_id, people.director, titles.title, titles.type
 FROM "netflix_people" people
 LEFT JOIN "netflix_titles_info" titles
