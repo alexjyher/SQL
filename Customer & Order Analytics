@@ -49,6 +49,13 @@ SELECT count(distinct cust.acctnum) AS "Customers", avg(quantity*price) AS "Aver
 FROM BIT_DB.FebSales Feb
 INNER JOIN BIT_DB.customers cust
 ON FEB.orderid=cust.order_id
+
+--List all the products sold in Los Angeles in February, and include how many of each were sold.
+
+SELECT Product, sum(Quantity), location
+FROM BIT_DB.FebSales
+WHERE location like '%Los Angeles%'
+GROUP BY Product;
 WHERE Feb.Quantity > 2
 AND length(orderid) = 6
 AND orderid <> 'Order ID';
