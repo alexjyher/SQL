@@ -72,7 +72,7 @@ INSERT INTO BIT_DB.CityBikeLanes values(60,2002, 2021,"Mouse",4.5,4.3,"no");
 
 SELECT * FROM CityBikeLanes LIMIT 10;
 
---Your boss wants a list of all the bike lanes that have an average safety rating of 4.0 or higher. She also wants to see the average safety rating for each of those bike lanes, and a label that says "Safe Lane".
+--List of all the bike lanes that have an average safety rating of 4.0 or higher. Display the average safety rating for each of those bike lanes, and a label that says "Safe Lane".
 
 WITH asr4_table AS (
     SELECT c.street, avg(c.safetyrating) AS average_safety_rating
